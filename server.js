@@ -41,9 +41,6 @@ app.get('/', (request, response) => {
 
 });
 
-// Skapar en konstant för varukorgen
-//const cart = database.get('cart').write();
-
 // Söker efter en produkt
 app.get('/api/products/:id', (request, response) => {
     let allProducts = database.get('products'); 
