@@ -15,7 +15,7 @@ app.use(
     })
   );
 
-// Skapar en tom databas
+// Skapar en databas
 const initiateDatabase = () => {
     const databaseInitiated = database.has('insults').value();
 
@@ -39,22 +39,6 @@ app.get('/', (request, response) => {
     const products = database.get('products')
     response.send(products);
 
-});
-
-// Söker efter en produkt
-app.get('/api/products/:id', (request, response) => {
-    let allProducts = database.get('products'); 
-
-    const oneProduct = allProducts.find(c => c.id === parseInt(request.params.id));
-    if (!oneProduct) {
-
-        response.status(404).send('Den produkten finns tyvärr inte.');
-    
-    } else {
-
-        response.send(oneProduct);
-
-    };
 });
 
 // Lägger till produkter i varukorgen
